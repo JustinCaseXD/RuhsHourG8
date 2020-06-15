@@ -1,0 +1,25 @@
+import org.gradle.api.component.Artifact
+
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+mainClassName = 'de.hskarlsruhe.vsmb4.gruppe8.MainApp'
+
+group 'de.hs-karlsruhe.vsmb4.gruppe8'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+javafx {
+    version = "14.0.1"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
