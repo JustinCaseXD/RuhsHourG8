@@ -8,10 +8,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-
-
-import static javafx.application.Application.launch;
-
 public class MainApp extends Application {
 
     public static void main (String[] args){
@@ -19,8 +15,8 @@ public class MainApp extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Hello World");
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Rushour");
         Button btn = new Button();
         btn.setText("Hallo");
         btn.setOnAction((event -> Platform.exit()));
