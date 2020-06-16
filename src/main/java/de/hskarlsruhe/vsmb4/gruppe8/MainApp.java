@@ -22,21 +22,22 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage)  {
-
         Parent root = null;
-        try {
 
-       root = FXMLLoader.load(getClass().getResource("Startseite.fxml"));
-        } catch (IOException e) {
+        try {
+        root = FXMLLoader.load(getClass().getResource("Startseite.fxml"));
+        }
+
+        catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-
         primaryStage.setScene(new Scene(root));
-
         primaryStage.setTitle("Rush Hour");
-
         primaryStage.show();
 
     }
+
+
+
 }
