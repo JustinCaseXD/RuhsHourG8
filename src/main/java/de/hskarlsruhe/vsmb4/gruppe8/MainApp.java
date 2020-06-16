@@ -18,7 +18,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Rushour");
         Button btn = new Button();
-        btn.setText("Hallo");
+        btn.setText("Ja Moin");
         btn.setOnAction((event -> Platform.exit()));
         Pane root = new StackPane();
         root.getChildren().add(btn);
