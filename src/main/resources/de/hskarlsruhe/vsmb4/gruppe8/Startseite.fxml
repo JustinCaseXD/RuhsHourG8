@@ -10,7 +10,7 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400" prefWidth="640.0" VBox.vgrow="ALWAYS">
       <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7e0a0a" height="400.0" stroke="BLACK" strokeType="INSIDE" width="640.0" />
-            <Button fx:id="btn_imprint" layoutX="496.0" layoutY="267.0" mnemonicParsing="false" onAction="#pressImprint" text="Impressum">
+            <Button fx:id="btn_imprint" layoutX="495.0" layoutY="268.0" mnemonicParsing="false" onAction="#pressImprint" text="Impressum">
                <font>
                   <Font name="Broadway" size="10.0" />
                </font>
@@ -25,7 +25,7 @@
                   <Font name="Broadway" size="46.0" />
                </font>
             </Text>
-            <Button fx:id="btn_option" layoutX="497.0" layoutY="290.0" mnemonicParsing="false" onAction="#pressOptions" prefHeight="5.0" prefWidth="76.0" text="Optionen">
+            <Button fx:id="btn_option" layoutX="496.0" layoutY="295.0" mnemonicParsing="false" onAction="#pressOptions" prefHeight="5.0" prefWidth="76.0" text="Optionen">
                <font>
                   <Font name="Broadway" size="10.0" />
                </font>
