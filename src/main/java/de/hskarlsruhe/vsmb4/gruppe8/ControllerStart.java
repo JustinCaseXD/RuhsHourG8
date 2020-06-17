@@ -19,15 +19,25 @@ public class ControllerStart {
 
     }
 
-    public void pressStart (ActionEvent eventS) throws IOException{
+    public void pressStart1 (ActionEvent eventS) throws IOException{
 
-            Parent start = FXMLLoader.load(getClass().getResource("Spielfeld.fxml"));
-            Scene field = new Scene(start);
+            Parent start1 = FXMLLoader.load(getClass().getResource("SpielfeldEins.fxml"));
+            Scene field1 = new Scene(start1);
             Stage window = (Stage)((Node)eventS.getSource()).getScene().getWindow();
 
-            window.setScene(field);
+            window.setScene(field1);
             window.show();
         }
+
+    public void pressStart2 (ActionEvent eventS) throws IOException{
+
+        Parent start2 = FXMLLoader.load(getClass().getResource("SpielfeldZwei.fxml"));
+        Scene field2 = new Scene(start2);
+        Stage window = (Stage)((Node)eventS.getSource()).getScene().getWindow();
+
+        window.setScene(field2);
+        window.show();
+    }
 
         public void pressRules (ActionEvent eventR) throws IOException{
         Parent rules = FXMLLoader.load(getClass().getResource("Regeln.fxml"));

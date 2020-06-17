@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hskarlsruhe.vsmb4.gruppe8.ControllerField">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hskarlsruhe.vsmb4.gruppe8.ControllerLVL1">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
@@ -58,7 +58,7 @@
                   <Font name="Broadway" size="12.0" />
                </font>
             </Button>
-            <Button onAction="#pressBack" fx:id="btn_menu" layoutX="540.0" layoutY="70.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="53.0" text="Menü">
+            <Button fx:id="btn_menu_lvl1" layoutX="540.0" layoutY="70.0" mnemonicParsing="false" onAction="#pressBack" prefHeight="25.0" prefWidth="53.0" text="Menü">
                <font>
                   <Font name="Broadway" size="12.0" />
                </font>
@@ -69,26 +69,18 @@
                   <Font name="Broadway" size="12.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="461.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zeit">
-               <font>
-                  <Font name="Broadway" size="12.0" />
-               </font>
-            </Text>
-            <TextField layoutX="460.0" layoutY="322.0" />
-            <Button layoutX="535.0" layoutY="177.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="Pause">
-               <font>
-                  <Font name="Broadway" size="12.0" />
-               </font>
-            </Button>
             <Text layoutX="531.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
                <font>
                   <Font name="Broadway" size="12.0" />
                </font></Text>
-            <Text layoutX="523.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1:39">
-               <font>
-                  <Font name="Broadway" size="12.0" />
-               </font>
-            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="60.0" layoutX="150.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#19248a" height="120.0" layoutX="285.0" layoutY="153.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeff00" height="60.0" layoutX="225.0" layoutY="285.0" stroke="BLACK" strokeType="INSIDE" width="180.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00fc24" height="120.0" layoutX="145.0" layoutY="287.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="60.0" layoutX="155.0" layoutY="75.0" stroke="BLACK" strokeType="INSIDE" width="180.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffae00" height="60.0" layoutX="15.0" layoutY="355.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#099b09" height="120.0" layoutX="355.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0fa3e8" height="190.0" layoutX="75.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
          </children>
     </AnchorPane>
   </children>

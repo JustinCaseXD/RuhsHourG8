@@ -7,56 +7,12 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hskarlsruhe.vsmb4.gruppe8.ControllerStart">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400" prefWidth="640.0" VBox.vgrow="ALWAYS">
       <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7e0a0a" height="400.0" stroke="BLACK" strokeType="INSIDE" width="640.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="29.0" layoutX="171.0" layoutY="166.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="29.0" layoutX="272.0" layoutY="166.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="29.0" layoutX="358.0" layoutY="166.0" stroke="BLACK" strokeType="INSIDE" width="84.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="29.0" layoutX="249.0" layoutY="238.0" stroke="BLACK" strokeType="INSIDE" width="119.0" />
-            <CheckBox layoutX="259.0" layoutY="244.0" mnemonicParsing="false" text="# 1">
-               <font>
-                  <Font name="Broadway" size="12.0" />
-               </font>
-            </CheckBox>
-            <CheckBox layoutX="319.0" layoutY="244.0" mnemonicParsing="false" text="# 2">
-               <font>
-                  <Font name="Broadway" size="12.0" />
-               </font>
-            </CheckBox>
-            <CheckBox layoutX="177.0" layoutY="172.0" mnemonicParsing="false" text="Leicht">
-               <font>
-                  <Font name="Broadway" size="12.0" />
-               </font>
-            </CheckBox>
-            <CheckBox layoutX="279.0" layoutY="172.0" mnemonicParsing="false" text="Mittel">
-               <font>
-                  <Font name="Broadway" size="12.0" />
-               </font>
-            </CheckBox>
-            <CheckBox layoutX="365.0" layoutY="172.0" mnemonicParsing="false" text="Schwer">
-               <font>
-                  <Font name="Broadway" size="12.0" />
-               </font>
-            </CheckBox>
-            <Text layoutX="291.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lvl">
-               <font>
-                  <Font name="Broadway" size="22.0" />
-               </font>
-            </Text>
-            <Text layoutX="217.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Schwierigkeit">
-               <font>
-                  <Font name="Broadway" size="25.0" />
-               </font>
-            </Text>
             <Button fx:id="btn_imprint" layoutX="496.0" layoutY="267.0" mnemonicParsing="false" onAction="#pressImprint" text="Impressum">
                <font>
                   <Font name="Broadway" size="10.0" />
-               </font>
-            </Button>
-            <Button fx:id="btn_start" cache="true" layoutX="250.0" layoutY="273.0" mnemonicParsing="false" onAction="#pressStart" text="Start">
-               <font>
-                  <Font name="Broadway" size="29.0" />
                </font>
             </Button>
             <Button fx:id="btn_rules" layoutX="486.0" layoutY="179.0" mnemonicParsing="false" onAction="#pressRules" prefHeight="75.0" prefWidth="95.0" text="Regeln">
@@ -69,11 +25,22 @@
                   <Font name="Broadway" size="46.0" />
                </font>
             </Text>
-            <Button fx:id="btn_option" layoutX="497.0" layoutY="290.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="76.0" text="Optionen" onAction="#pressOptions">
+            <Button fx:id="btn_option" layoutX="497.0" layoutY="290.0" mnemonicParsing="false" onAction="#pressOptions" prefHeight="5.0" prefWidth="76.0" text="Optionen">
                <font>
                   <Font name="Broadway" size="10.0" />
                </font>
             </Button>
+            <Button fx:id="btn_startLVL2" layoutX="154.0" layoutY="261.0" mnemonicParsing="false" onAction="#pressStart2" prefHeight="54.0" prefWidth="304.0" text="Start LVL 2">
+                <font>
+                    <Font name="Broadway" size="29.0" />
+                </font>
+            </Button>
+            <Button fx:id="btn_startLVL1" layoutX="154.0" layoutY="200.0" mnemonicParsing="false" onAction="#pressStart1" prefHeight="54.0" prefWidth="304.0" text="Start LVL 1">
+               <font>
+                  <Font name="Broadway" size="29.0" />
+               </font>
+            </Button>
+
       </children>
     </AnchorPane>
   </children>
