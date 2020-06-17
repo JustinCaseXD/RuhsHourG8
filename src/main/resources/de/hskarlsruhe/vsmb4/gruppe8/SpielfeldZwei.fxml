@@ -53,23 +53,23 @@
                   <Font size="23.0" />
                </font>
             </Text>
-            <Button layoutX="535.0" layoutY="146.0" mnemonicParsing="false" text="Restart">
+            <Button layoutX="535.0" layoutY="179.0" mnemonicParsing="false" text="Restart">
                <font>
                   <Font name="Broadway" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btn_menu_lvl2" layoutX="540.0" layoutY="70.0" mnemonicParsing="false" onAction="#pressBack" prefHeight="25.0" prefWidth="53.0" text="Menü">
+            <Button fx:id="btn_menu_lvl2" layoutX="540.0" layoutY="146.0" mnemonicParsing="false" onAction="#pressBack" prefHeight="25.0" prefWidth="53.0" text="Menü">
                <font>
                   <Font name="Broadway" size="12.0" />
                </font>
             </Button>
-            <TextField layoutX="458.0" layoutY="262.0" />
-            <Text fill="WHITE" layoutX="458.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Züge">
+            <TextField layoutX="462.0" layoutY="320.0" />
+            <Text fill="WHITE" layoutX="471.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Züge">
                <font>
                   <Font name="Broadway" size="12.0" />
                </font>
             </Text>
-            <Text layoutX="531.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
+            <Text layoutX="531.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
                <font>
                   <Font name="Broadway" size="12.0" />
                </font></Text>

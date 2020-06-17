@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -15,6 +16,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.scene.shape.Shape;
+
+import javax.swing.*;
 
 public class ControllerLVL1 {
 
@@ -29,17 +32,36 @@ public class ControllerLVL1 {
     }
 
 
+
+
+
     public void dragVertical (MouseEvent event) {
-        Node n = (Node)event.getSource();
-        n.setTranslateY(n.getTranslateY() + event.getY());
+
+        if (event.getButton() == MouseButton.PRIMARY) {
+            Node n = (Node) event.getSource();
+            n.setTranslateY(n.getTranslateY() + 70);
+        }
+        if (event.getButton() == MouseButton.SECONDARY) {
+            Node n = (Node) event.getSource();
+            n.setTranslateY(n.getTranslateY() - 70);
+        }
     }
 
     public void dragHorizontal (MouseEvent event) {
-        Node n = (Node)event.getSource();
-        n.setTranslateX(n.getTranslateX() + event.getX());
+
+        if (event.getButton() == MouseButton.PRIMARY) {
+            Node n = (Node) event.getSource();
+            n.setTranslateX(n.getTranslateX() - 70);
+        }
+        if (event.getButton() == MouseButton.SECONDARY) {
+            Node n = (Node) event.getSource();
+            n.setTranslateX(n.getTranslateX() + 70);
+        }
+
+
+        JPanel panel = new JPanel();
+        panel.setSize(420, 420);
     }
-
-
 }
 
 
