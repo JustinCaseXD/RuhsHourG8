@@ -30,6 +30,16 @@ public class ControllerLVL1 {
         window.show();
     }
 
+    public void pressRestart (ActionEvent eventB) throws IOException {
+
+        Parent back = FXMLLoader.load(getClass().getResource("SpielfeldEins.fxml"));
+        Scene backs = new Scene(back);
+        Stage window = (Stage) ((Node) eventB.getSource()).getScene().getWindow();
+
+        window.setScene(backs);
+        window.show();
+    }
+
 
     @FXML
     private Pane playPane;
@@ -69,27 +79,24 @@ public class ControllerLVL1 {
 
     public void moveBlocks(MouseEvent event) {
 
-
-
         Bounds rct_red1_bounds = rct_red1.getBoundsInParent();
         Bounds rct_dblue1_bounds = rct_dblue1.getBoundsInParent();
         Bounds rct_bblue1_bounds = rct_bblue1.getBoundsInParent();
 
-        Node n = (Node) event.getSource();
-
         if (rct_red1_bounds.intersects(rct_dblue1_bounds)) {
-            n.setTranslateX(n.getTranslateX() - 70);
+            Node n = (Node) event.getSource();
+            n.setTranslateX(n.getTranslateX() -70);
         }
 
         if (rct_red1_bounds.intersects(rct_bblue1_bounds)) {
-            n.setTranslateX(n.getTranslateX() + 70);
+            Node n = (Node) event.getSource();
+            n.setTranslateX(n.getTranslateX() +70);
         }
-
 
         else {
             dragHorizontal(event);
-        }
 
+        }
     }
 
 }
