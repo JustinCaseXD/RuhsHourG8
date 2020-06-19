@@ -54,7 +54,7 @@
                   <Font size="23.0" />
                </font>
             </Text>
-            <Button onAction="#pressRestart" fx:id="btn_restart1" layoutX="535.0" layoutY="179.0" mnemonicParsing="false" text="Restart">
+            <Button fx:id="btn_restart1" layoutX="535.0" layoutY="179.0" mnemonicParsing="false" onAction="#pressRestart" text="Restart">
                <font>
                   <Font name="Broadway" size="12.0" />
                </font>
@@ -74,16 +74,17 @@
                <font>
                   <Font name="Broadway" size="12.0" />
                </font></Text>
-         <AnchorPane fx:id="playPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="420.0" prefWidth="420">
+         <AnchorPane fx:id="playPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="420.0" prefWidth="420"
+            onDragDetected="#dragDetected"
+            onDragEntered="#dragEntered"
+            onDragDone="#dragAny"
+            onDragDropped="#dragAny"
+            onDragExited="#dragAny"
+            onDragOver="#dragAny"
+            onMousePressed="#mousePressed"
+            onMouseReleased="#mouseReleased"
+         >
             <children>
-            <Rectangle fx:id="rct_red1" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="60.0" layoutX="150.0" layoutY="144.0" onMouseClicked="#moveBlocks" stroke="BLACK" strokeType="INSIDE" width="120.0" />
-            <Rectangle fx:id="rct_dblue1" arcHeight="5.0" arcWidth="5.0" fill="#19248a" height="120.0" layoutX="285.0" layoutY="153.0" onMouseClicked="#dragVertical" stroke="BLACK" strokeType="INSIDE" width="60.0" />
-            <Rectangle fx:id="rct_yellow1" arcHeight="5.0" arcWidth="5.0" fill="#eeff00" height="60.0" layoutX="225.0" layoutY="285.0" onMouseClicked="#dragHorizontal" stroke="BLACK" strokeType="INSIDE" width="180.0" />
-            <Rectangle fx:id="rct_bgreen1" arcHeight="5.0" arcWidth="5.0" fill="#00fc24" height="120.0" layoutX="145.0" layoutY="287.0" onMouseClicked="#dragVertical" stroke="BLACK" strokeType="INSIDE" width="60.0" />
-            <Rectangle fx:id="rct_white1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="60.0" layoutX="155.0" layoutY="75.0" onMouseClicked="#dragHorizontal" stroke="BLACK" strokeType="INSIDE" width="180.0" />
-            <Rectangle fx:id="rct_orange1" arcHeight="5.0" arcWidth="5.0" fill="#ffae00" height="60.0" layoutX="15.0" layoutY="355.0" onMouseClicked="#dragHorizontal" stroke="BLACK" strokeType="INSIDE" width="120.0" />
-            <Rectangle fx:id="rct_dgreen1" arcHeight="5.0" arcWidth="5.0" fill="#099b09" height="120.0" layoutX="355.0" layoutY="15.0" onMouseClicked="#dragVertical" stroke="BLACK" strokeType="INSIDE" width="60.0" />
-            <Rectangle fx:id="rct_bblue1" arcHeight="5.0" arcWidth="5.0" fill="#0fa3e8" height="190.0" layoutX="75.0" layoutY="79.0" onMouseClicked="#dragVertical" stroke="BLACK" strokeType="INSIDE" width="60.0" />
             </children>
          </AnchorPane>
          </children>
