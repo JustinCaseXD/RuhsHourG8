@@ -26,7 +26,7 @@ public class ControllerLVL1 {
     static final int CELLSIZE = 70;
     @FXML
     public Pane playPane;
-   // public text counter;
+    //public text counter;
     private Field field;
 
     public ControllerLVL1(){
@@ -34,13 +34,8 @@ public class ControllerLVL1 {
 
     public void initialize(){
         field = Field.getLevel(1);
-
-        //System.out.println("initialize " + playPane);
         Car redCar = field.getRedCar();
-        //System.out.println("redCat " + redCar );
-        //System.out.println("playPane " + playPane);
         ObservableList<Node> children = playPane.getChildren();
-        //System.out.println("children "+ children);
         playPane.getChildren().add(field.getRedCar());
         playPane.getChildren().addAll(field.getCars());
     }
