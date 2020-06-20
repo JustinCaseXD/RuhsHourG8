@@ -16,6 +16,7 @@ public class CarTest {
         assertFalse(carV.isCovering(5,0));
         assertFalse(carV.isCovering(5,7));
         assertFalse(carV.isCovering(0,0));
-
-    }
+        Car testcar = new Car(1,1,false,3,Color.ALICEBLUE);
+        assertFalse(testcar.isCovering(1,4));
+        }
 }

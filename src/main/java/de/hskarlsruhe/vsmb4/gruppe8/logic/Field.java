@@ -19,9 +19,7 @@ public class Field {
         this.allCars.add(redCar);
         this.allCars.addAll(cars);
     }
-    public static int getFour(){
-        return 4;
-    }
+
     public static Field getLevel(int l){
         if (l == 1 ){
             return  levelOne();
@@ -45,6 +43,10 @@ public class Field {
         return null;
     }
 
+    public static Field levelThree(){
+        List<Car> newcars = new ArrayList<>();
+        return  new Field(new Car(1,2,false,3, RED), newcars);
+    }
     public Car getRedCar(){
         return redCar;
     }
@@ -62,21 +64,59 @@ public class Field {
     }
 
 
-    public void move(int startColomn, int startRow, int targetColumn, int targetRow) {
+    public void move(int startColumn, int startRow, int targetColumn, int targetRow) {
 
-        Car movingCar = getCarAt(startColomn, startRow);
+        int stepsX;
+        int stepsY;
+        int checkColumn;
+        int checkRow;
+        int finalTagetColumn;
+        int finalTargetRow;
+        Car movingCar = getCarAt(startColumn, startRow);
+        int step;
 
-        if(movingCar != null) { //teste ob das geht Kolision etc.)
+        if(movingCar != null) {
+
+            if (movingCar.isHorizontal()){
+                finalTargetRow = startRow;
+                stepsX = targetColumn - startColumn;
+                step = stepsX / Math.abs(stepsX);
+                for ( int i = 1 ; i <= Math.abs(stepsX) ; i++ ) {
+                    if ( step < 0 ) {
+                        checkColumn = movingCar.getColumn() + step;
+                    }else{
+                    checkColumn = movingCar.getColumn() + movingCar.getSize()-1  + step;}
+                    if (isFree(checkColumn, finalTargetRow)) {
+                        movingCar.move(movingCar.getColumn() +step , finalTargetRow);
+                    } else {
+                        return;
+                    }
+                }
+            }else{
+                finalTagetColumn = startColumn;
+                stepsY = targetRow - startRow;
+                step = stepsY / Math.abs(stepsY);
+
+                for ( int i = 1 ; i <= Math.abs(stepsY); i++) {
+                    if (step < 0){
+                        checkRow = movingCar.getRow() + step;
+                    }else{
+                        checkRow = movingCar.getRow() + movingCar.getSize()-1 + step;}
+                    if (isFree(finalTagetColumn , checkRow)) {
+                        movingCar.move(finalTagetColumn , movingCar.getRow() +step );
+                    } else {
+                        return;
+                    }
+                }
+            }
+
             // ist da ein auto
             //welche Ausrichtung hat es
             // aus dem Mouse Vector start -> Target den reinen x bzw y vector bilden
             // in einzelschritten in dieser richtung jedes Feld hinter /bzw vor dem Auto testen field.isFree()
             // in diese richtung ein schritt fahren
             // bis Target errreicht oder Kolision oder Spielfeldrand
-            int finalTagetColumn = 4; //TODO das ist nicht wirklich 4
-            int finalTargetRow = 2;
-            movingCar.move(finalTagetColumn, finalTargetRow);
-        }
+            }
     }
 
     public boolean isFree(int column, int row) {

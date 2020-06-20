@@ -31,6 +31,10 @@ public class Car extends Rectangle {
         return column;
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public int getRow() {
         return row;
     }
@@ -55,9 +59,9 @@ public class Car extends Rectangle {
 
     public boolean isCovering(int column, int row) {
         if (horizontal){
-            return this.row == row && this.column <= column && this.column + size >= column;
+            return this.row == row && this.column <= column && this.column + size -1 >= column;
         }else{
-            return this.column == column && this.row <= row && this.row + size >= row;
+            return this.column == column && this.row <= row && this.row + size -1 >= row;
         }
     }
 
