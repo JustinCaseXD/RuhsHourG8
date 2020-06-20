@@ -26,7 +26,7 @@ public class ControllerLVL1 {
     static final int CELLSIZE = 70;
     @FXML
     public Pane playPane;
-
+   // public text counter;
     private Field field;
 
     public ControllerLVL1(){
@@ -74,74 +74,6 @@ public class ControllerLVL1 {
         return (int) (event.getSceneX() / CELLSIZE)  ;
     }
 
-
-    /*public void dragVertical(MouseEvent event) {
-
-
-        if (event.getButton() == MouseButton.PRIMARY) {
-            Node n = (Node) event.getSource();
-            n.setTranslateY(n.getTranslateY() + 70);
-        }
-
-        if (event.getButton() == MouseButton.SECONDARY) {
-            Node n = (Node) event.getSource();
-            n.setTranslateY(n.getTranslateY() - 70);
-        }
-    }
-
-    public void dragHorizontal(MouseEvent event) {
-
-        if (event.getButton() == MouseButton.PRIMARY) {
-            Node n = (Node) event.getSource();
-            n.setTranslateX(n.getTranslateX() - 70);
-        }
-
-        if (event.getButton() == MouseButton.SECONDARY) {
-            Node n = (Node) event.getSource();
-            n.setTranslateX(n.getTranslateX() + 70);
-        }
-
-    }
-
-
-    public void moveBlocks(MouseEvent event) {
-
-        Bounds rct_red1_bounds = rct_red1.getBoundsInParent();
-        Bounds rct_dblue1_bounds = rct_dblue1.getBoundsInParent();
-        Bounds rct_bblue1_bounds = rct_bblue1.getBoundsInParent();
-
-        if (rct_red1_bounds.intersects(rct_dblue1_bounds)) {
-            Node n = (Node) event.getSource();
-            n.setTranslateX(n.getTranslateX() -70);
-        }
-
-        if (rct_red1_bounds.intersects(rct_bblue1_bounds)) {
-            Node n = (Node) event.getSource();
-            n.setTranslateX(n.getTranslateX() +70);
-        }
-
-        else {
-            dragHorizontal(event);
-
-        }
-    }
-
-    public void dragDetected(MouseEvent mouseEvent) {
-        Node node = (Node) mouseEvent.getSource();
-        System.out.println("dragDetected "+ node);
-    }
-
-    public void dragEntered(DragEvent dragEvent) {
-        Node node = (Node) dragEvent.getSource();
-        System.out.println("dragEntered "+ node);
-    }
-
-    public void dragAny(DragEvent dragEvent) {
-        Node node = (Node) dragEvent.getSource();
-        EventType<DragEvent> type = dragEvent.getEventType();
-        System.out.println("dragAny " + node + " type: " + type);
-    }
-*/
     public void mousePressed(MouseEvent event) {
         startRow = getRow(event);
         startColomn = getColumn(event);
@@ -150,7 +82,12 @@ public class ControllerLVL1 {
     public void mouseReleased(MouseEvent event) {
         targetRow = getRow(event);
         targetColomn = getColumn(event);
-        field.move(startColomn, startRow, targetColomn, targetRow);
+        if (field.move(startColomn, startRow, targetColomn, targetRow)){
+        //    counter ++;
+        }
+        if (field.isSolved()){
+            //hier soll was passieren
+        }
     }
 }
 

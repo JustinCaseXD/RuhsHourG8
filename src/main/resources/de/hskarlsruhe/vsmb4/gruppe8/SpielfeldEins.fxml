@@ -70,15 +70,11 @@
                   <Font name="Broadway" size="12.0" />
                </font>
             </Text>
-            <Text layoutX="534.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
+            <Text id="counter" layoutX="534.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
                <font>
                   <Font name="Broadway" size="12.0" />
                </font></Text>
-         <AnchorPane fx:id="playPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="420.0" prefWidth="420"
-
-            onMousePressed="#mousePressed"
-            onMouseReleased="#mouseReleased"
-         >
+         <AnchorPane fx:id="playPane" maxHeight="-1.0" maxWidth="-1.0" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" prefHeight="420.0" prefWidth="420">
             <children>
             </children>
          </AnchorPane>
