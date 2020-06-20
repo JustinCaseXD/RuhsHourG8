@@ -40,8 +40,19 @@ public class Field {
         return  new Field(new Car(2,2,true,2, RED), newcars);
     }
     public static Field levelTwo(){
-        return null;
-    }
+        List<Car> newcars = new ArrayList<>();
+        newcars.add(new Car(0,0,false,2,WHITE));
+        newcars.add(new Car(0,5,true,2,PINK));
+        newcars.add(new Car(2,1,true,3,LAVENDER));
+        newcars.add(new Car(5,0,false,2,GREY));
+        newcars.add(new Car(2,2,false,2,DARKBLUE));
+        newcars.add(new Car(4,2,false,2,DARKGREEN));
+        newcars.add(new Car(5,2,false,3,LIGHTBLUE));
+        newcars.add(new Car(1,4,true,2,ORANGE));
+        newcars.add(new Car(3,4,true,2,LIGHTGRAY));
+        newcars.add(new Car(3,5,true,3,YELLOW));
+        return new Field(new Car(0,2,true,2,RED),newcars);
+        }
 
     public static Field levelThree(){
         List<Car> newcars = new ArrayList<>();

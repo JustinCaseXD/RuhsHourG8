@@ -1,26 +1,23 @@
 package de.hskarlsruhe.vsmb4.gruppe8;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javax.swing.*;
-import javafx.event.ActionEvent;
+
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class ControllerStart {
-
+    public int level;
     public void checkboxHandler (ActionEvent event){
 
     }
 
     public void pressStart1 (ActionEvent eventS) throws IOException{
 
+            //level == 1;
             Parent start1 = FXMLLoader.load(getClass().getResource("SpielfeldEins.fxml"));
             Scene field1 = new Scene(start1);
             Stage window = (Stage)((Node)eventS.getSource()).getScene().getWindow();
@@ -31,6 +28,7 @@ public class ControllerStart {
 
     public void pressStart2 (ActionEvent eventS) throws IOException{
 
+        //level = 2;
         Parent start2 = FXMLLoader.load(getClass().getResource("SpielfeldZwei.fxml"));
         Scene field2 = new Scene(start2);
         Stage window = (Stage)((Node)eventS.getSource()).getScene().getWindow();

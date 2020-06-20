@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hskarlsruhe.vsmb4.gruppe8.ControllerLVL2">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hskarlsruhe.vsmb4.gruppe8.ControllerLVL2">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="420.0" prefWidth="653.0" VBox.vgrow="ALWAYS">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c8c8c8" height="420.0" stroke="BLACK" strokeType="INSIDE" width="420.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c8c8c8" height="70.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
@@ -53,37 +54,30 @@
                   <Font size="23.0" />
                </font>
             </Text>
-            <Button layoutX="535.0" layoutY="179.0" mnemonicParsing="false" text="Restart">
+            <Button fx:id="btn_restart1" layoutX="535.0" layoutY="179.0" mnemonicParsing="false" onAction="#pressRestart" text="Restart">
                <font>
                   <Font name="Broadway" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btn_menu_lvl2" layoutX="540.0" layoutY="146.0" mnemonicParsing="false" onAction="#pressBack" prefHeight="25.0" prefWidth="53.0" text="Menü">
+            <Button fx:id="btn_menu_lvl1" layoutX="540.0" layoutY="146.0" mnemonicParsing="false" onAction="#pressBack" prefHeight="25.0" prefWidth="53.0" text="Menü">
                <font>
                   <Font name="Broadway" size="12.0" />
                </font>
             </Button>
-            <TextField layoutX="462.0" layoutY="320.0" />
-            <Text fill="WHITE" layoutX="471.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Züge">
+            <TextField layoutX="464.0" layoutY="302.0" />
+            <Text fill="WHITE" layoutX="467.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Züge">
                <font>
                   <Font name="Broadway" size="12.0" />
                </font>
             </Text>
-            <Text layoutX="531.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
+            <Text id="counter" layoutX="534.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
                <font>
                   <Font name="Broadway" size="12.0" />
                </font></Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="60.0" layoutX="10.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#19248a" height="120.0" layoutX="145.0" layoutY="150.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6f6f6f" height="120.0" layoutX="355.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff00d7" height="60.0" layoutX="155.0" layoutY="75.0" stroke="BLACK" strokeType="INSIDE" width="180.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffae00" height="60.0" layoutX="80.0" layoutY="285.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0fa3e8" height="190.0" layoutX="355.0" layoutY="150.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eeff00" height="60.0" layoutX="225.0" layoutY="355.0" stroke="BLACK" strokeType="INSIDE" width="180.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#099b09" height="120.0" layoutX="285.0" layoutY="150.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0049ff" height="60.0" layoutX="220.0" layoutY="285.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="120.0" layoutX="5.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="60.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff007b" height="60.0" layoutX="10.0" layoutY="355.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+         <AnchorPane fx:id="playPane2" maxHeight="-1.0" maxWidth="-1.0" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" prefHeight="420.0" prefWidth="420">
+            <children>
+            </children>
+         </AnchorPane>
          </children>
     </AnchorPane>
   </children>
