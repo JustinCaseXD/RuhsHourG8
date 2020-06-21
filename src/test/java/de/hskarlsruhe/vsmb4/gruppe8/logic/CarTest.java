@@ -19,4 +19,5 @@ public class CarTest {
         Car testcar = new Car(1,1,false,3,Color.ALICEBLUE);
         assertFalse(testcar.isCovering(1,4));
         }
+
 }

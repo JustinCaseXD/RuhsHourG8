@@ -23,8 +23,14 @@ public class Field {
     public static Field getLevel(int l){
         if (l == 1 ){
             return  levelOne();
+        }
+        if (l == 2){
+            return levelTwo();
+        }
+        if (l == 3){
+            return  levelThree();
         }else{
-            return  levelTwo();
+            return levelOne();
         }
     }
 
@@ -56,8 +62,21 @@ public class Field {
 
     public static Field levelThree(){
         List<Car> newcars = new ArrayList<>();
-        return  new Field(new Car(1,2,false,3, RED), newcars);
+        return  new Field(new Car(1,1,true,3, RED), newcars);
     }
+
+    public static Field levelFour(){
+        List<Car> newcars = new ArrayList<>();
+        newcars.add(new Car(0,1,false,3, YELLOW));
+        newcars.add(new Car(1,0,true,2,LIGHTGREEN));
+        newcars.add(new Car(3,0,false,3,LIGHTCORAL));
+        newcars.add(new Car(2,4,false,2,ORANGE));
+        newcars.add(new Car(3,3,true,3,DARKBLUE));
+        newcars.add(new Car(5,1,false,2,DARKVIOLET));
+        newcars.add(new Car(3,5,true,3,LIGHTBLUE));
+        return new Field(new Car(1,2,true,2,RED),newcars);
+    }
+
     public Car getRedCar(){
         return redCar;
     }
@@ -80,7 +99,9 @@ public class Field {
     public boolean move(int startColumn, int startRow, int targetColumn, int targetRow) {
 
         boolean move = false;
-        int stepsX;
+        boolean verticalpositiv = false;
+        boolean horizontalpositiv = false;
+        int stepsX ;
         int stepsY;
         int checkColumn;
         int checkRow;
@@ -91,10 +112,27 @@ public class Field {
 
         if (movingCar != null) {
 
+            if (startColumn - targetColumn < 0 ) {
+                horizontalpositiv = true;
+            }else{
+            }
+            if (startRow - targetRow < 0) {
+                verticalpositiv = true;
+            }else{
+            }
+
             if (movingCar.isHorizontal()) {
+
                 finalTargetRow = startRow;
-                stepsX = targetColumn - startColumn;
+
+                if (horizontalpositiv) {
+                    stepsX = targetColumn - movingCar.getEndColumn();
+                }else{
+                        stepsX = targetColumn - movingCar.getColumn();
+                    }
+
                 step = stepsX / Math.abs(stepsX);
+
                 for (int i = 1; i <= Math.abs(stepsX); i++) {
                     if (step < 0) {
                         checkColumn = movingCar.getColumn() + step;
@@ -108,9 +146,13 @@ public class Field {
                         return move;
                     }
                 }
-            } else {
+                } else {
+                if (verticalpositiv) {
+                    stepsY = targetRow - movingCar.getEndRow();
+                }else {
+                    stepsY = targetRow - movingCar.getRow();
+                }
                 finalTagetColumn = startColumn;
-                stepsY = targetRow - startRow;
                 step = stepsY / Math.abs(stepsY);
 
                 for (int i = 1; i <= Math.abs(stepsY); i++) {

@@ -39,6 +39,22 @@ public class Car extends Rectangle {
         return row;
     }
 
+    public int getEndRow() {
+        if (horizontal){
+            return getRow();
+        }else{
+            return getRow() + ( size - 1);
+        }
+    }
+
+    public int getEndColumn(){
+        if (horizontal) {
+            return getColumn() + (size - 1);
+        }else{
+            return getColumn();
+        }
+    }
+
     public boolean isHorizontal() {
         return horizontal;
     }

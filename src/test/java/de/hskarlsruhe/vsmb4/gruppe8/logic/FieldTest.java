@@ -27,13 +27,12 @@ public class FieldTest {
 
     @Test
     public  void testMove(){
-        //Plan wir holen ein existierendes Auto aus dem field
-        Car movingCar = field.getCarAt(1,2);
+        Car movingCar = field.getCarAt(1,1);
         assertFalse(movingCar.isCovering(4,4));
-        field.move(1,2, 1,0);
-        assertEquals(movingCar, field.getCarAt(1,0));
-        assertEquals(1, movingCar.getColumn());
-        assertEquals(0 ,movingCar.getRow());
+        field.move(1,1, 4,1);
+        assertNotEquals(movingCar, field.getCarAt(5,1));
+        assertEquals(4, movingCar.getEndColumn());
+        assertEquals(1 ,movingCar.getEndRow());
     }
 
     @Test
