@@ -112,13 +112,20 @@ public class Field {
 
         if (movingCar != null) {
 
-            if (startColumn - targetColumn < 0 ) {
+            if (startColumn - targetColumn < 0) {
                 horizontalpositiv = true;
-            }else{
             }
+            if (startColumn - targetColumn == 0 && movingCar.isHorizontal()) {
+                return move;
+            } else {
+            }
+
             if (startRow - targetRow < 0) {
                 verticalpositiv = true;
-            }else{
+            }
+            if (startRow - targetRow == 0 && !movingCar.isHorizontal()) {
+                return move;
+            } else {
             }
 
             if (movingCar.isHorizontal()) {
@@ -127,11 +134,14 @@ public class Field {
 
                 if (horizontalpositiv) {
                     stepsX = targetColumn - movingCar.getEndColumn();
-                }else{
-                        stepsX = targetColumn - movingCar.getColumn();
-                    }
-
+                } else {
+                    stepsX = targetColumn - movingCar.getColumn();
+                }
+                if (stepsX == 0) {
+                    return move;
+                }
                 step = stepsX / Math.abs(stepsX);
+
 
                 for (int i = 1; i <= Math.abs(stepsX); i++) {
                     if (step < 0) {
@@ -146,13 +156,16 @@ public class Field {
                         return move;
                     }
                 }
-                } else {
+            } else {
                 if (verticalpositiv) {
                     stepsY = targetRow - movingCar.getEndRow();
-                }else {
+                } else {
                     stepsY = targetRow - movingCar.getRow();
                 }
                 finalTagetColumn = startColumn;
+                if (stepsY == 0) {
+                    return move;
+                }
                 step = stepsY / Math.abs(stepsY);
 
                 for (int i = 1; i <= Math.abs(stepsY); i++) {
