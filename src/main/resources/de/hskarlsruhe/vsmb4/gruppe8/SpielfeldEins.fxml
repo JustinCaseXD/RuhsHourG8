@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hskarlsruhe.vsmb4.gruppe8.ControllerLVL1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.hskarlsruhe.vsmb4.gruppe8.Controller">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="420.0" prefWidth="653.0" VBox.vgrow="ALWAYS">
          <children>
@@ -75,8 +75,7 @@
                   <Font name="Broadway" size="12.0" />
                </font></Text>
          <AnchorPane fx:id="playPane" maxHeight="-1.0" maxWidth="-1.0" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" prefHeight="420.0" prefWidth="420">
-            <children>
-            </children>
+
          </AnchorPane>
          </children>
     </AnchorPane>

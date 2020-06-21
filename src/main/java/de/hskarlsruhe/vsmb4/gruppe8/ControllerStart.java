@@ -10,31 +10,41 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class ControllerStart {
+
     public int level;
     public void checkboxHandler (ActionEvent event){
 
     }
 
     public void pressStart1 (ActionEvent eventS) throws IOException{
+            level = 1;
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SpielfeldEins.fxml"));
+                        Parent start1 = fxmlLoader.load();
+                        Controller controller = fxmlLoader.getController();
+                        controller.initialize(level);
+                        Scene field1 = new Scene(start1);
+                        Stage window = (Stage)((Node)eventS.getSource()).getScene().getWindow();
 
-            //level == 1;
-            Parent start1 = FXMLLoader.load(getClass().getResource("SpielfeldEins.fxml"));
-            Scene field1 = new Scene(start1);
-            Stage window = (Stage)((Node)eventS.getSource()).getScene().getWindow();
+
 
             window.setScene(field1);
             window.show();
         }
 
     public void pressStart2 (ActionEvent eventS) throws IOException{
+            level = 2;
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SpielfeldEins.fxml"));
+            Parent start1 = fxmlLoader.load();
+            Controller controller = fxmlLoader.getController();
+            controller.initialize(level);
+            Scene field1 = new Scene(start1);
+            Stage window = (Stage)((Node)eventS.getSource()).getScene().getWindow();
 
-        //level = 2;
-        Parent start2 = FXMLLoader.load(getClass().getResource("SpielfeldZwei.fxml"));
-        Scene field2 = new Scene(start2);
-        Stage window = (Stage)((Node)eventS.getSource()).getScene().getWindow();
 
-        window.setScene(field2);
+
+        window.setScene(field1);
         window.show();
+
     }
 
         public void pressRules (ActionEvent eventR) throws IOException{

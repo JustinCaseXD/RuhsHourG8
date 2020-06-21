@@ -29,6 +29,9 @@ public class Field {
         }
         if (l == 3){
             return  levelThree();
+        }
+        if (l == 4){
+           return levelFour();
         }else{
             return levelOne();
         }

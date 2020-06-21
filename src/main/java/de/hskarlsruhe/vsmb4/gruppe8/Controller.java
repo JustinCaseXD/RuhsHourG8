@@ -17,9 +17,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class ControllerLVL1 {
+public class Controller {
 
-    public int level;
+
     private int startColomn;
     private int startRow;
     private int targetColomn;
@@ -30,11 +30,11 @@ public class ControllerLVL1 {
     //public text counter;
     private Field field;
 
-    public ControllerLVL1(){
+    public Controller(){
     }
 
-    public void initialize(){
-        field = Field.getLevel(1);
+    public void initialize(int level){
+        field = Field.getLevel(level);
         //System.out.println(level);
         Car redCar = field.getRedCar();
         ObservableList<Node> children = playPane.getChildren();
