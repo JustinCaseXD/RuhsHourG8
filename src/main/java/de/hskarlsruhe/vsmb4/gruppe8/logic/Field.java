@@ -65,7 +65,7 @@ public class Field {
 
     public static Field levelThree(){
         List<Car> newcars = new ArrayList<>();
-        return  new Field(new Car(1,1,true,3, RED), newcars);
+        return  new Field(new Car(1,2,true,2, RED), newcars);
     }
 
     public static Field levelFour(){

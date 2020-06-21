@@ -11,12 +11,12 @@ import java.io.IOException;
 
 public class ControllerStart {
 
-    public int level;
+    public static int level;
     public void checkboxHandler (ActionEvent event){
 
     }
 
-    public void pressStart1 (ActionEvent eventS) throws IOException{
+    public int pressStart1 (ActionEvent eventS) throws IOException{
             level = 1;
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SpielfeldEins.fxml"));
                         Parent start1 = fxmlLoader.load();
@@ -29,9 +29,10 @@ public class ControllerStart {
 
             window.setScene(field1);
             window.show();
+            return level;
         }
 
-    public void pressStart2 (ActionEvent eventS) throws IOException{
+    public int pressStart2 (ActionEvent eventS) throws IOException{
             level = 2;
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SpielfeldEins.fxml"));
             Parent start1 = fxmlLoader.load();
@@ -44,7 +45,7 @@ public class ControllerStart {
 
         window.setScene(field1);
         window.show();
-
+    return level;
     }
 
         public void pressRules (ActionEvent eventR) throws IOException{
@@ -75,5 +76,7 @@ public class ControllerStart {
     }
 
 
-
+    public static int getLevel() {
+        return level;
+    }
 }

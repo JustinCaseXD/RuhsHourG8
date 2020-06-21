@@ -10,8 +10,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,7 +25,7 @@ import java.io.IOException;
 
 public class Controller {
 
-
+    int level;
     private int startColomn;
     private int startRow;
     private int targetColomn;
@@ -34,7 +40,7 @@ public class Controller {
     }
 
     public void initialize(int level){
-        field = Field.getLevel(level);
+        field = Field.getLevel(3);
         //System.out.println(level);
         Car redCar = field.getRedCar();
         ObservableList<Node> children = playPane.getChildren();
@@ -54,12 +60,16 @@ public class Controller {
 
     public void pressRestart (ActionEvent eventB) throws IOException {
 
-        Parent back = FXMLLoader.load(getClass().getResource("SpielfeldEins.fxml"));
-        Scene backs = new Scene(back);
-        Stage window = (Stage) ((Node) eventB.getSource()).getScene().getWindow();
-
-        window.setScene(backs);
+        level = ControllerStart.getLevel();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SpielfeldEins.fxml"));
+        Parent start1 = fxmlLoader.load();
+        Controller controller = fxmlLoader.getController();
+        controller.initialize(level);
+        Scene field1 = new Scene(start1);
+        Stage window = (Stage)((Node)eventB.getSource()).getScene().getWindow();
+        window.setScene(field1);
         window.show();
+
     }
 
     public int getRow(MouseEvent event) {
@@ -76,6 +86,28 @@ public class Controller {
         startColomn = getColumn(event);
     }
 
+    public void won () {
+
+        ObservableList<Node> children = playPane.getChildren();
+        Rectangle gewonnen = new Rectangle(420, 420);
+        Text text = new Text("Du bist ein Gewinnertyp!");
+
+        ImageView imageView = new ImageView();
+        imageView.setImage(new Image(this.getClass().getResource("Obama.gif").toExternalForm()));
+        playPane.getChildren().add(gewonnen);
+            gewonnen.setFill(Color.LIGHTGRAY);
+        playPane.getChildren().add(text);
+            text.setX(120);
+            text.setY(150);
+            text.setUnderline(true);
+            text.setSelectionFill(Color.WHITE);
+            text.setFont(new Font(20));
+        playPane.getChildren().add(imageView);
+            imageView.setX(65);
+            imageView.setY(160);
+
+    }
+
     public void mouseReleased(MouseEvent event) {
         targetRow = getRow(event);
         targetColomn = getColumn(event);
@@ -83,7 +115,7 @@ public class Controller {
         //    counter ++;
         }
         if (field.isSolved()){
-            //hier soll was passieren
+            won();
         }
     }
 }
