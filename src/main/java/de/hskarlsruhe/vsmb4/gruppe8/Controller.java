@@ -34,7 +34,9 @@ public class Controller {
     @FXML
     public Pane playPane;
     //public text counter;
-    private Field field;
+    public Field field;
+    String filepath = "C:\\Users\\Kai\\Desktop\\Studium\\RushHourG8\\dontleave.wav";
+
 
     public Controller(){
     }
@@ -46,6 +48,16 @@ public class Controller {
         ObservableList<Node> children = playPane.getChildren();
         playPane.getChildren().add(field.getRedCar());
         playPane.getChildren().addAll(field.getCars());
+
+       /* Sound musicObject = new Sound();
+        musicObject.playMusic(filepath); */
+        new Sound(filepath);
+        Sound.play();
+        Sound.loop();
+
+
+
+
     }
 
     public void pressBack(ActionEvent eventB) throws IOException {
@@ -59,6 +71,8 @@ public class Controller {
     }
 
     public void pressRestart (ActionEvent eventB) throws IOException {
+
+        Sound.stop();
 
         level = ControllerStart.getLevel();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SpielfeldEins.fxml"));
@@ -88,17 +102,23 @@ public class Controller {
 
     public void won () {
 
+        Sound.stop();
+        String filepath = "C:\\Users\\Kai\\Desktop\\Studium\\RushHourG8\\jubel.wav";
+        new Sound(filepath);
+        Sound.play();
+
         ObservableList<Node> children = playPane.getChildren();
         Rectangle gewonnen = new Rectangle(420, 420);
         Text text = new Text("Du bist ein Gewinnertyp!");
 
         ImageView imageView = new ImageView();
         imageView.setImage(new Image(this.getClass().getResource("Obama.gif").toExternalForm()));
+
         playPane.getChildren().add(gewonnen);
             gewonnen.setFill(Color.LIGHTGRAY);
         playPane.getChildren().add(text);
-            text.setX(120);
-            text.setY(150);
+            text.setX(105);
+            text.setY(100);
             text.setUnderline(true);
             text.setSelectionFill(Color.WHITE);
             text.setFont(new Font(20));
