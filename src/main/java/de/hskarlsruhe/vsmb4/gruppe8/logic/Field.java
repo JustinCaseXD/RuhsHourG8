@@ -1,5 +1,7 @@
 package de.hskarlsruhe.vsmb4.gruppe8.logic;
 
+import de.hskarlsruhe.vsmb4.gruppe8.Sound;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -155,7 +157,12 @@ public class Field {
                     if (isFree(checkColumn, finalTargetRow)) {
                         movingCar.move(movingCar.getColumn() + step, finalTargetRow);
                         move = true;
+                        Sound.sound("C:\\Users\\Kai\\Desktop\\Studium\\RushHourG8\\brumbrum.wav");
+                        Sound.play();
+
                     } else {
+                        Sound.sound("C:\\Users\\Kai\\Desktop\\Studium\\RushHourG8\\hupen.wav");
+                        Sound.play();
                         return move;
                     }
                 }
@@ -180,7 +187,11 @@ public class Field {
                     if (isFree(finalTagetColumn, checkRow)) {
                         movingCar.move(finalTagetColumn, movingCar.getRow() + step);
                         move = true;
+                        Sound.sound("C:\\Users\\Kai\\Desktop\\Studium\\RushHourG8\\brumbrum.wav");
+                        Sound.play();
                     } else {
+                        Sound.sound("C:\\Users\\Kai\\Desktop\\Studium\\RushHourG8\\hupen.wav");
+                        Sound.play();
                         return move;
                     }
                 }

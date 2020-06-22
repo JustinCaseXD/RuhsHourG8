@@ -35,24 +35,23 @@ public class Controller {
     public Pane playPane;
     //public text counter;
     public Field field;
-    String filepath = "C:\\Users\\Kai\\Desktop\\Studium\\RushHourG8\\dontleave.wav";
+    public String filepath = "C:\\Users\\Kai\\Desktop\\Studium\\RushHourG8\\dontleave.wav";
 
 
     public Controller(){
     }
 
     public void initialize(int level){
-        field = Field.getLevel(3);
+        field = Field.getLevel(level);
         //System.out.println(level);
         Car redCar = field.getRedCar();
         ObservableList<Node> children = playPane.getChildren();
         playPane.getChildren().add(field.getRedCar());
         playPane.getChildren().addAll(field.getCars());
 
-       /* Sound musicObject = new Sound();
-        musicObject.playMusic(filepath); */
-        new Sound(filepath);
-        Sound.play();
+
+        Sound.sound1(filepath);
+        Sound.play1();
         Sound.loop();
 
 
@@ -61,6 +60,8 @@ public class Controller {
     }
 
     public void pressBack(ActionEvent eventB) throws IOException {
+
+        Sound.stop1();
 
         Parent back = FXMLLoader.load(getClass().getResource("Startseite.fxml"));
         Scene backs = new Scene(back);
@@ -72,7 +73,7 @@ public class Controller {
 
     public void pressRestart (ActionEvent eventB) throws IOException {
 
-        Sound.stop();
+        Sound.stop1();
 
         level = ControllerStart.getLevel();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SpielfeldEins.fxml"));
@@ -102,10 +103,10 @@ public class Controller {
 
     public void won () {
 
-        Sound.stop();
-        String filepath = "C:\\Users\\Kai\\Desktop\\Studium\\RushHourG8\\jubel.wav";
-        new Sound(filepath);
+        Sound.stop1();
+        Sound.sound("C:\\Users\\Kai\\Desktop\\Studium\\RushHourG8\\jubel.wav");
         Sound.play();
+
 
         ObservableList<Node> children = playPane.getChildren();
         Rectangle gewonnen = new Rectangle(420, 420);
