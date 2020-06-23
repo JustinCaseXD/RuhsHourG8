@@ -21,6 +21,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 
 public class Controller {
@@ -33,31 +34,32 @@ public class Controller {
     static final int CELLSIZE = 70;
     @FXML
     public Pane playPane;
-    //public text counter;
     public Field field;
-    public String filepath = "C:\\Users\\Kai\\Desktop\\Studium\\RushHourG8\\dontleave.wav";
 
+    public String counter;
 
     public Controller(){
     }
 
     public void initialize(int level){
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("dontleave.wav");
+
         field = Field.getLevel(level);
-        //System.out.println(level);
         Car redCar = field.getRedCar();
         ObservableList<Node> children = playPane.getChildren();
         playPane.getChildren().add(field.getRedCar());
         playPane.getChildren().addAll(field.getCars());
 
-
-        Sound.sound1(filepath);
+        Sound.sound1(inputStream);
         Sound.play1();
         Sound.loop();
 
 
-
-
     }
+
+
+
+
 
     public void pressBack(ActionEvent eventB) throws IOException {
 
@@ -104,7 +106,8 @@ public class Controller {
     public void won () {
 
         Sound.stop1();
-        Sound.sound("C:\\Users\\Kai\\Desktop\\Studium\\RushHourG8\\jubel.wav");
+        InputStream inputStream2 = getClass().getClassLoader().getResourceAsStream("jubel.wav");
+        Sound.sound(inputStream2);
         Sound.play();
 
 
@@ -133,7 +136,13 @@ public class Controller {
         targetRow = getRow(event);
         targetColomn = getColumn(event);
         if (field.move(startColomn, startRow, targetColomn, targetRow)){
-        //    counter ++;
+            InputStream inputStream3 = getClass().getClassLoader().getResourceAsStream("brumbrum.wav");
+            Sound.sound(inputStream3);
+            Sound.play();
+        }else{
+            InputStream inputStream4 = getClass().getClassLoader().getResourceAsStream("hupen.wav");
+            Sound.sound(inputStream4);
+            Sound.play();
         }
         if (field.isSolved()){
             won();

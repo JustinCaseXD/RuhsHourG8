@@ -1,8 +1,8 @@
 package de.hskarlsruhe.vsmb4.gruppe8;
 
 import javax.sound.sampled.*;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 
 public class Sound extends Controller {
@@ -11,21 +11,20 @@ private static Clip clip;
 private static Clip clip1;
 
 
-        public static void sound1(String fileName) {
+        public static void sound1(InputStream inputStream) {
             // specify the sound to play
             // (assuming the sound can be played by the audio system)
             // from a wave File
             try {
-                File file = new File(fileName);
-                if (file.exists()) {
-                    AudioInputStream sound = AudioSystem.getAudioInputStream(file);
+
+                    AudioInputStream sound = AudioSystem.getAudioInputStream(inputStream);
                     // load the sound into memory (a Clip)
                     clip1 = AudioSystem.getClip();
                     clip1.open(sound);
-                }
-                else {
-                    throw new RuntimeException("Sound: file not found: " + fileName);
-                }
+
+
+
+
             }
             catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -46,21 +45,18 @@ private static Clip clip1;
 
 
         }
-    public static void sound(String fileName) {
+    public static void sound(InputStream inputStream) {
         // specify the sound to play
         // (assuming the sound can be played by the audio system)
         // from a wave File
         try {
-            File file = new File(fileName);
-            if (file.exists()) {
-                AudioInputStream sound = AudioSystem.getAudioInputStream(file);
+
+                AudioInputStream sound = AudioSystem.getAudioInputStream(inputStream);
                 // load the sound into memory (a Clip)
                 clip = AudioSystem.getClip();
                 clip.open(sound);
-            }
-            else {
-                throw new RuntimeException("Sound: file not found: " + fileName);
-            }
+
+
         }
         catch (MalformedURLException e) {
             e.printStackTrace();
