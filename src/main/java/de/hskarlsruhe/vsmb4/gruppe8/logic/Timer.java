@@ -24,21 +24,5 @@ public class Timer {
     private void scheduleAtFixedRate(TimerTask task, int i, int i1) {
     } */
 
-    public boolean timer (int playtime) {
 
-        for ( int i = playtime ; i >= 0 ; i--){
-            counter = String.valueOf(i);
-            try {
-                wait(1000, 0);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }if ( counter == String.valueOf(0) ){
-         return true;
-        }else{
-            System.out.println("da ist was schief gelaufen");
-            return false;
-        }
-
-    }
 }

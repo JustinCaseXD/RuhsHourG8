@@ -3,8 +3,11 @@ package de.hskarlsruhe.vsmb4.gruppe8;
 
 import de.hskarlsruhe.vsmb4.gruppe8.logic.Car;
 import de.hskarlsruhe.vsmb4.gruppe8.logic.Field;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,6 +22,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,30 +36,56 @@ public class Controller {
     private int targetColomn;
     private int targetRow;
     static final int CELLSIZE = 70;
+    public int playtime;
+    public Field field;
     @FXML
     public Pane playPane;
-    public Field field;
-
-    public String counter;
+    @FXML
+    public Text counter;
 
     public Controller(){
     }
 
-    public void initialize(int level){
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("dontleave.wav");
+    public void initialize(int level) {
 
-        field = Field.getLevel(level);
-        Car redCar = field.getRedCar();
-        ObservableList<Node> children = playPane.getChildren();
-        playPane.getChildren().add(field.getRedCar());
-        playPane.getChildren().addAll(field.getCars());
+            if (level == 1) {
+                playtime = 60;
+            }
+            if (level == 2) {
+                playtime = 150;
+            }
+            field = Field.getLevel(level);
+            Car redCar = field.getRedCar();
+            ObservableList<Node> children = playPane.getChildren();
+            playPane.getChildren().add(field.getRedCar());
+            playPane.getChildren().addAll(field.getCars());
 
-        Sound.sound1(inputStream);
-        Sound.play1();
-        Sound.loop();
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("dontleave.wav");
+            Sound.sound1(inputStream);
+            Sound.play1();
+            Sound.loop();
 
+            startTimer();
 
-    }
+        }
+
+        private void startTimer () {
+            Timeline timer = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    if (playtime >= 0) {
+                        counter.setText(String.valueOf(playtime));
+                        playtime--;
+
+                    }
+                    if (playtime == 0){
+                        lose();
+                    }
+                }
+            }));
+            timer.setCycleCount(Timeline.INDEFINITE);
+            timer.play();
+        }
 
 
 
@@ -112,14 +142,14 @@ public class Controller {
 
 
         ObservableList<Node> children = playPane.getChildren();
-        Rectangle gewonnen = new Rectangle(420, 420);
+        Rectangle recWon = new Rectangle(420, 420);
         Text text = new Text("Du bist ein Gewinnertyp!");
 
         ImageView imageView = new ImageView();
         imageView.setImage(new Image(this.getClass().getResource("Obama.gif").toExternalForm()));
 
-        playPane.getChildren().add(gewonnen);
-            gewonnen.setFill(Color.LIGHTGRAY);
+        playPane.getChildren().add(recWon);
+            recWon.setFill(Color.LIGHTGRAY);
         playPane.getChildren().add(text);
             text.setX(105);
             text.setY(100);
@@ -129,6 +159,37 @@ public class Controller {
         playPane.getChildren().add(imageView);
             imageView.setX(65);
             imageView.setY(160);
+
+    }
+
+    public void lose () {
+        ObservableList<Node> children = playPane.getChildren();
+
+        Rectangle recLose = new Rectangle(420, 420);
+        Text text = new Text("Zeit abgelaufen");
+        Text text2 = new Text("versuchs nochmal...");
+
+        /*ImageView imageView2 = new ImageView();
+        imageView2.setImage(new Image(this.getClass().getResource("Obama1.gif").toExternalForm()));*/
+
+        Sound.stop1();
+        playPane.getChildren().add(recLose);
+        recLose.setFill(Color.LIGHTGRAY);
+        playPane.getChildren().add(text);
+        text.setX(70);
+        text.setY(100);
+        text.setUnderline(true);
+        text.setSelectionFill(Color.WHITE);
+        text.setFont(new Font(20));
+        playPane.getChildren().add(text2);
+        text2.setX(70);
+        text2.setY(180);
+        text2.setUnderline(true);
+        text2.setSelectionFill(Color.WHITE);
+        text2.setFont(new Font(20));
+        /*playPane.getChildren().add(imageView2);
+        imageView2.setX(65);
+        imageView2.setY(160);*/
 
     }
 
